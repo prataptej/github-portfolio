@@ -64,7 +64,7 @@
   "currentlyLearning": [
     { "name": "Go", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" },
     { "name": "GraphQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
-    { "name": "Rust", "icon": "'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg" }
+    { "name": "Rust", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg" }
   ],
   "achievements": [
     { "title": "Certified Java Developer", "icon": "🏆" },
