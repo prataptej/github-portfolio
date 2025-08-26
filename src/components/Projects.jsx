@@ -50,9 +50,10 @@ const Projects = ({ projectsData }) => {
               href={project.repoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-5 py-2 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md tracking-wide"
+              className="inline-flex items-center justify-center bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors duration-300 shadow-md"
+              aria-label="View Code"
             >
-              View Code
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16L2 12l4-4"></path></svg>
             </a>
           )}
           {project.demoLink && (
@@ -60,9 +61,10 @@ const Projects = ({ projectsData }) => {
               href={project.demoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 text-white px-5 py-2 rounded-full text-lg font-semibold hover:bg-green-700 transition-colors duration-300 shadow-md tracking-wide"
+              className="inline-flex items-center justify-center bg-green-600 text-white p-3 rounded-full hover:bg-green-700 transition-colors duration-300 shadow-md"
+              aria-label="Live Demo"
             >
-              Live Demo
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
             </a>
           )}
         </div>

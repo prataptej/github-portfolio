@@ -3,73 +3,68 @@
   "tagline": "A passionate software engineer building modern web experiences.",
   "profilePicture": "https://media.licdn.com/dms/image/v2/D5603AQHXy84gBFVzYQ/profile-displayphoto-shrink_400_400/B56ZPbQ83BG4Ao-/0/1734550475101?e=1759363200&v=beta&t=ez-CBpiQbeQu6DwKnzSnM4o7MxF4-dfZ0IhQHQgTTik",
   "contact": {
-    "email": "your.email@example.com",
-    "github": "https://github.com/your-github-username",
-    "linkedin": "https://linkedin.com/in/your-linkedin-profile"
+    "email": "tejpratap2012@gmail.com",
+    "github": "https://github.com/prataptej",
+    "linkedin": "https://linkedin.com/in/pratap-tej"
   },
   "about": {
     "title": "About Me",
     "description": [
-      "I'm a dedicated and innovative software engineer with a passion for crafting robust and scalable applications. My journey in technology has been driven by a constant desire to learn and apply cutting-edge solutions to real-world problems.",
-      "With a strong foundation in both front-end and back-end development, I enjoy tackling complex challenges and building intuitive user experiences. I believe in writing clean, maintainable code and am always eager to collaborate on exciting new projects.",
-      "Outside of coding, I enjoy [mention a hobby or two, e.g., hiking, reading, gaming] which helps me stay refreshed and brings a different perspective to my problem-solving."
+      "Software Engineer with a strong background in Java-based development, including Spring MVC, Hibernate, and REST API design. With more than 6 years of experience, I bring robust analytical skills, a passion for clean coding practices, and a proactive approach to optimizing system architecture and performance."
     ]
   },
   "experience": [
     {
-      "title": "Member Technical Staff",
+      "title": "Software Engineer",
       "company": "Oracle",
       "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg",
-      "duration": "October 2022 - Present",
+      "duration": "April 2022 - Present",
       "description": [
-        "Developed and maintained high-performance web applications using Java and Spring Boot.",
-        "Collaborated with cross-functional teams to design and implement new features.",
-        "Optimized application performance and ensured scalability."
+        "Analyzed, designed, and developed RESTful services for various modules using Spring and Java.",
+        "Performed high-level design and implemented changes to existing application.",
+        "Built complex enhancements, resolved bugs, and developed comprehensive unit tests using JUnit.",
+        "Collaborated with QA teams to review test plans and ensure consistent product functionality and quality.",
+        "Used JIRA and Confluence for bug tracking, issue tracking, and project management. Jenkins pipelines for continuous integration and delivery."
       ]
+
     },
     {
-      "title": "Software Engineer",
+      "title": "Systems Engineer",
       "company": "Tata Consultancy Services",
-      "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tcs/tcs-original.svg",
-      "duration": "July 2020 - September 2022",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Tata_Consultancy_Services_old_logo.svg",
+      "duration": "June 2019 - April 2022",
       "description": [
-        "Contributed to the development of enterprise-level software solutions.",
-        "Participated in code reviews and mentored junior developers.",
-        "Implemented responsive UIs with HTML, CSS, and JavaScript."
+        "Develop backend RESTful web services in Spring-MVC using Spring Boot, Spring Dependency Injection (DI), and Spring Annotations and extensively used Java 8 capabilities.",
+        "Developed controllers in Spring MVC which delegate the request from front end to the delegator layer which makes calls with backend systems.",
+        "Implemented various J2EE design patterns such as MVC, Factory, Singleton, and DAO."
       ]
+
     }
   ],
   "projects": {
     "githubUsername": "prataptej",
     "manualProjects": [
       {
-        "name": "Personal Blog",
-        "description": "A personal blog built with Next.js and Markdown. Features include dark mode, commenting, and search.",
-        "techStack": ["Next.js", "React", "Tailwind CSS", "Markdown"],
-        "repoLink": "https://github.com/your-username/personal-blog",
-        "demoLink": "https://your-blog-demo.vercel.app"
+        "name": "Singh Law Associates",
+        "description": "Singh Law Associates is a Portfolio website for a Law firm in Lucknow. This website beautifully conveys the agenda of the firm and also helps users to connect directly with them. It is fully responsive and mobile-ready. Click on the image to get redirected to it.",
+        "techStack": ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
+        "repoLink": "https://github.com/prataptej/personal-blog",
+        "demoLink": "https://modest-beaver-1fccf2.netlify.app/"
       },
       {
-        "name": "E-commerce Store",
-        "description": "A full-stack e-commerce application with user authentication, product management, and payment integration.",
-        "techStack": ["MongoDB", "Express.js", "React", "Node.js", "Stripe"],
-        "repoLink": "https://github.com/your-username/ecommerce-store",
-        "demoLink": "https://your-ecommerce-demo.vercel.app"
-      },
-      {
-        "name": "Task Management App",
-        "description": "A simple and intuitive task management application with drag-and-drop functionality and real-time updates.",
-        "techStack": ["React", "Firebase", "Redux", "Material-UI"],
-        "repoLink": "https://github.com/your-username/task-management-app",
-        "demoLink": "https://your-task-app-demo.vercel.app"
+        "name": "Weather Check",
+        "description": "Weather Check is web application which uses openweather api to get weather details of a particular location entered by user. The API calling works behind the scenes with the help of AJAX request which gives the feel of SPA application.",
+        "techStack": ["HTML", "CSS", "JavaScript", "AJAX", "Bootstrap CSS"],
+        "repoLink": "https://github.com/prataptej/weather_check",
+        "demoLink": "https://prataptej.github.io/weather_check/index.html"
       }
     ]
   },
-  "skills": "Java, Spring Boot, React, JavaScript, HTML5, CSS3, Tailwind CSS, Node.js, Express.js, MongoDB, Git, GitHub, VS Code, Maven, Gradle, MySQL, PostgreSQL, Docker, Kubernetes, Jira, Confluence, AWS",
+  "skills": "Java, Spring Boot, MongoDB, Git, GitHub, VS Code, Maven, Gradle, MySQL, Docker, Jira, Confluence",
   "currentlyLearning": [
     { "name": "Go", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" },
     { "name": "GraphQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
-    { "name": "Rust", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg" }
+    { "name": "Rust", "icon": "'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg" }
   ],
   "achievements": [
     { "title": "Certified Java Developer", "icon": "🏆" },
