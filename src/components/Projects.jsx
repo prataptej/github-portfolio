@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 const Projects = ({ projectsData }) => {
   const [githubProjects, setGithubProjects] = useState([]);
   const { githubUsername, manualProjects } = projectsData;
+  const [activeFilter, setActiveFilter] = useState('All'); // New state for active filter
 
   useEffect(() => {
     const fetchGithubProjects = async () => {
@@ -24,6 +25,31 @@ const Projects = ({ projectsData }) => {
     }
   }, [githubUsername]);
 
+  // Combine GitHub and manual projects
+  const allProjects = [
+    ...githubProjects.map(project => ({
+      name: project.name,
+      description: project.description || 'No description available.',
+      techStack: project.language ? [project.language] : [], // GitHub API provides 'language'
+      repoLink: project.html_url,
+      demoLink: project.homepage || null,
+    })),
+    ...manualProjects,
+  ];
+
+  // Extract all unique tech stacks for filters
+  const allTechStacks = Array.from(new Set(
+    allProjects.flatMap(project => project.techStack)
+  )).sort();
+  const filterOptions = ['All', ...allTechStacks];
+
+  // Filter projects based on activeFilter
+  const filteredProjects = activeFilter === 'All'
+    ? allProjects
+    : allProjects.filter(project =>
+        project.techStack.includes(activeFilter)
+      );
+
   const ProjectCard = ({ project, type }) => {
     const { ref, inView } = useInView({
       triggerOnce: true,
@@ -40,7 +66,7 @@ const Projects = ({ projectsData }) => {
           <h3 className={`text-2xl font-bold mb-3 ${type === 'github' ? 'text-white' : 'text-blue-300'} leading-snug`}>{project.name}</h3>
           <p className="text-gray-300 mb-5 text-base leading-relaxed">{project.description || 'No description available.'}</p>
           <div className="flex flex-wrap gap-2 mb-6">
-            {(project.techStack || (project.language ? [project.language] : [])).map((tech, i) => (
+            {project.techStack.map((tech, i) => (
               <span key={i} className={`text-xs font-semibold px-3 py-1 rounded-full ${type === 'github' ? 'bg-gray-700 text-gray-300' : 'bg-blue-600 text-white'} tracking-wide`}>
                 {tech}
               </span>
@@ -77,23 +103,24 @@ const Projects = ({ projectsData }) => {
     <section id="projects" className="min-h-screen bg-gray-800 text-white py-16">
       <div className="container mx-auto px-6 text-center max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-extrabold text-blue-400 mb-12 tracking-tight">My Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {githubProjects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              type="github"
-              project={{
-                name: project.name,
-                description: project.description || 'No description available.',
-                techStack: project.language ? [project.language] : [],
-                repoLink: project.html_url,
-                demoLink: project.homepage || null,
-              }}
-            />
+        
+        {/* Filter Buttons */}
+        <div className="mb-12 flex flex-wrap justify-center gap-4">
+          {filterOptions.map(filter => (
+            <button
+              key={filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`px-6 py-2 rounded-full text-lg font-semibold transition-all duration-300
+                ${activeFilter === filter ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
+            >
+              {filter}
+            </button>
           ))}
+        </div>
 
-          {manualProjects.map((project, index) => (
-            <ProjectCard key={index} type="manual" project={project} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {filteredProjects.map((project, index) => (
+            <ProjectCard key={index} project={project} type={project.repoLink && project.repoLink.includes('github.com') ? 'github' : 'manual'} />
           ))}
         </div>
       </div>
