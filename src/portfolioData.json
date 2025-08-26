@@ -1,0 +1,52 @@
+{
+  "name": "Tej Pratap Singh",
+  "tagline": "A passionate software engineer building modern web experiences.",
+  "profilePicture": "https://media.licdn.com/dms/image/v2/D5603AQHXy84gBFVzYQ/profile-displayphoto-shrink_400_400/B56ZPbQ83BG4Ao-/0/1734550475101?e=1759363200&v=beta&t=ez-CBpiQbeQu6DwKnzSnM4o7MxF4-dfZ0IhQHQgTTik",
+  "contact": {
+    "email": "tejpratap2012@gmail.com",
+    "github": "https://github.com/prataptej",
+    "linkedin": "https://linkedin.com/in/pratap-tej"
+  },
+  "about": {
+    "title": "About Me",
+    "description": [
+      "Software Engineer with a strong background in Java-based development, including Spring MVC, Hibernate, and REST API design. With over 5 years of experience, I bring robust analytical skills, a passion for clean coding practices, and a proactive approach to optimizing system architecture and performance. "
+    ]
+  },
+  "experience": [
+    {
+      "title": "Software Engineer",
+      "company": "Oracle",
+      "duration": "April 2022 - Present",
+      "description": [
+        "Analyzed, designed, and developed RESTful services for various modules using Spring and Java.",
+        "Performed high-level design and implemented changes to existing application.",
+        "Built complex enhancements, resolved bugs, and developed comprehensive unit tests using JUnit.",
+        "Collaborated with QA teams to review test plans and ensure consistent product functionality and quality.",
+        "Used JIRA and Confluence for bug tracking, issue tracking, and project management. Jenkins pipelines for continuous integration and delivery."
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Tata Consultancy Services",
+      "duration": "July 2020 - September 2022",
+      "description": [
+        "Develop backend restful web services in Spring-MVC using Spring Boot, Spring Dependency Injection (DI), and Spring Annotations and extensively used Java 8 capabilities.",
+        "Developed controllers in Spring MVC which delegates the request from front end to the delegator layer which make calls with backend systems.",
+        "Implemented various J2EE design patterns such as MVC, Factory, Singleton and DAO."
+      ]
+    }
+  ],
+  "projects": {
+    "githubUsername": "prataptej",
+    "manualProjects": [
+      {
+        "name": "Singh Law Associates",
+        "description": "Singh Law Associates is a Portfolio website for a Law firm in Lucknow. This website beautifully conveys the agenda of the firm and also helps users to connect directly with them. It is fully responsive and mobile-ready. Click on the image to get redirected to it.",
+        "techStack": ["Next.js", "React", "Tailwind CSS", "Markdown"],
+        "demoLink": "https://modest-beaver-1fccf2.netlify.app/"
+      }
+    ]
+  },
+  "skills": "Java, Spring Boot, Git, GitHub, VS Code, Maven, Gradle, MySQL, OracleDB"
+}

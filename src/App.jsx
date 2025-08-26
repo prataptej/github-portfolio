@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import About from './components/About';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import portfolioData from './portfolioData.json'; // Import the JSON data
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="bg-gray-800 text-white">
+      <Header name={portfolioData.name} />
+      <Hero name={portfolioData.name} tagline={portfolioData.tagline} profilePicture={portfolioData.profilePicture} contact={portfolioData.contact} aboutDescription={portfolioData.about.description}/>
+      <About title={portfolioData.about.title} description={portfolioData.about.description} profilePicture={portfolioData.profilePicture}/>
+      <Experience experiences={portfolioData.experience} />
+      <Projects projectsData={portfolioData.projects} />
+      <Skills skills={portfolioData.skills} />
+      <Contact contact={portfolioData.contact} />
+      <Footer name={portfolioData.name} />
+    </div>
+  );
 }
 
-export default App
+export default App;
