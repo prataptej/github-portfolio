@@ -2,42 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 const Projects = ({ projectsData }) => {
-  const [githubProjects, setGithubProjects] = useState([]);
-  const { githubUsername, manualProjects } = projectsData;
-  const [activeFilter, setActiveFilter] = useState('All'); // New state for active filter
+  const { manualProjects } = projectsData;
+  const [activeFilter, setActiveFilter] = useState('All');
 
-  useEffect(() => {
-    const fetchGithubProjects = async () => {
-      try {
-        const response = await fetch(`https://api.github.com/users/${githubUsername}/repos`);
-        if (!response.ok) {
-          throw new Error(`GitHub API error: ${response.statusText}`);
-        }
-        const data = await response.json();
-        setGithubProjects(data);
-      } catch (error) {
-        console.error('Error fetching GitHub projects:', error);
-      }
-    };
+  // Combine only manual projects for display
+  const allProjects = manualProjects.map(proj => ({ ...proj, isManual: true }));
 
-    if (githubUsername) {
-      fetchGithubProjects();
-    }
-  }, [githubUsername]);
-
-  // Combine GitHub and manual projects
-  const allProjects = [
-    ...githubProjects.map(project => ({
-      name: project.name,
-      description: project.description || 'No description available.',
-      techStack: project.language ? [project.language] : [], // GitHub API provides 'language'
-      repoLink: project.html_url,
-      demoLink: project.homepage || null,
-    })),
-    ...manualProjects,
-  ];
-
-  // Extract all unique tech stacks for filters
+  // Extract all unique tech stacks for filters from manual projects
   const allTechStacks = Array.from(new Set(
     allProjects.flatMap(project => project.techStack)
   )).sort();
@@ -50,7 +21,7 @@ const Projects = ({ projectsData }) => {
         project.techStack.includes(activeFilter)
       );
 
-  const ProjectCard = ({ project, type }) => {
+  const ProjectCard = ({ project }) => {
     const { ref, inView } = useInView({
       triggerOnce: true,
       threshold: 0.1,
@@ -60,14 +31,14 @@ const Projects = ({ projectsData }) => {
       <div
         ref={ref}
         className={`rounded-xl shadow-lg p-8 transform hover:scale-105 transition-all duration-1000 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'} flex flex-col justify-between
-        ${type === 'github' ? 'bg-gray-900 border border-gray-700' : 'bg-gray-700 border border-blue-500'}`}
+        bg-gray-700 border border-blue-500`}
       >
         <div>
-          <h3 className={`text-2xl font-bold mb-3 ${type === 'github' ? 'text-white' : 'text-blue-300'} leading-snug`}>{project.name}</h3>
+          <h3 className={`text-2xl font-bold mb-3 text-blue-300 leading-snug`}>{project.name}</h3>
           <p className="text-gray-300 mb-5 text-base leading-relaxed">{project.description || 'No description available.'}</p>
           <div className="flex flex-wrap gap-2 mb-6">
             {project.techStack.map((tech, i) => (
-              <span key={i} className={`text-xs font-semibold px-3 py-1 rounded-full ${type === 'github' ? 'bg-gray-700 text-gray-300' : 'bg-blue-600 text-white'} tracking-wide`}>
+              <span key={i} className={`text-xs font-semibold px-3 py-1 rounded-full bg-blue-600 text-white tracking-wide`}>
                 {tech}
               </span>
             ))}
@@ -105,22 +76,24 @@ const Projects = ({ projectsData }) => {
         <h2 className="text-4xl md:text-5xl font-extrabold text-blue-400 mb-12 tracking-tight">My Projects</h2>
         
         {/* Filter Buttons */}
-        <div className="mb-12 flex flex-wrap justify-center gap-4">
-          {filterOptions.map(filter => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2 rounded-full text-lg font-semibold transition-all duration-300
-                ${activeFilter === filter ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
+        {allProjects.length > 0 && (
+          <div className="mb-12 flex flex-wrap justify-center gap-4">
+            {filterOptions.map(filter => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-6 py-2 rounded-full text-lg font-semibold transition-all duration-300
+                  ${activeFilter === filter ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredProjects.map((project, index) => (
-            <ProjectCard key={index} project={project} type={project.repoLink && project.repoLink.includes('github.com') ? 'github' : 'manual'} />
+            <ProjectCard key={index} project={project} />
           ))}
         </div>
       </div>
