@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -7,10 +7,18 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import portfolioData from './portfolioData.json'; // Import the JSON data
+import TerminalFab from './features/terminal/TerminalFab';
+import Terminal from './features/terminal/Terminal';
+import portfolioData from './portfolioData.json';
 import './App.css';
 
 function App() {
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+
+  const toggleTerminal = () => {
+    setIsTerminalOpen(!isTerminalOpen);
+  };
+
   return (
     <div className="bg-gray-800 text-white">
       <Header name={portfolioData.name} />
@@ -21,6 +29,8 @@ function App() {
       <Skills skills={portfolioData.skills} />
       <Contact contact={portfolioData.contact} />
       <Footer name={portfolioData.name} />
+      <TerminalFab onClick={toggleTerminal} />
+      <Terminal isOpen={isTerminalOpen} onClose={toggleTerminal} portfolioData={portfolioData} />
     </div>
   );
 }
