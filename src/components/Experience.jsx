@@ -20,6 +20,9 @@ const Experience = ({ experiences }) => {
               <div key={index} ref={ref} className={`mb-12 md:mb-16 flex flex-col items-center w-full transition-all duration-1000 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'} ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                 {/* Experience Card */}
                 <div className={`w-full md:w-1/2 p-6 rounded-lg shadow-lg bg-gray-900 border border-gray-700 transform hover:scale-105 transition-transform duration-300 ${index % 2 === 0 ? 'md:pr-10' : 'md:pl-10'}`}>
+                  {exp.logo && (
+                    <img src={exp.logo} alt={`${exp.company} Logo`} className="w-16 h-16 mx-auto mb-4 filter grayscale hover:grayscale-0 transition-all duration-300" />
+                  )}
                   <h3 className="text-2xl font-semibold text-blue-300 mb-2 text-center leading-snug">{exp.title}</h3>
                   <p className="text-xl font-medium text-white mb-1 text-center leading-snug">{exp.company}</p>
                   <p className="text-gray-400 mb-4 text-center leading-snug">{exp.duration}</p>
