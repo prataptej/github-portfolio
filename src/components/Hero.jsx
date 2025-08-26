@@ -12,15 +12,15 @@ const Hero = ({ name, tagline }) => {
       </div>
 
       <div className="relative z-10 text-center p-6 bg-gray-800/70 rounded-lg shadow-2xl backdrop-blur-sm">
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in-down">Hello, I'm {name}</h1>
-        <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in-down animation-delay-500">
+        <h1 className="text-5xl md:text-7xl font-extrabold mb-4 animate-fade-in-down tracking-tight">Hello, I'm {name}</h1>
+        <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-fade-in-down animation-delay-500 leading-relaxed">
           {tagline}
         </p>
         <Link
           to="about"
           smooth={true}
           duration={700}
-          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer animate-fade-in-down animation-delay-1000"
+          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 cursor-pointer animate-fade-in-down animation-delay-1000 tracking-wide"
         >
           Discover More
         </Link>

@@ -33,7 +33,7 @@ const Skills = ({ skills: skillsCsv }) => {
   return (
     <section id="skills" className="min-h-screen bg-gray-900 text-white py-16">
       <div className="container mx-auto px-6 text-center max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-blue-400 mb-12">My Skills</h2>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-blue-400 mb-12 tracking-tight">My Skills</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
           {skillsArray.map((skillName, index) => {
             const { ref, inView } = useInView({
@@ -50,7 +50,7 @@ const Skills = ({ skills: skillsCsv }) => {
                 className={`bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-1000 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'} border border-gray-700`}
               >
                 <img src={iconSrc} alt={skillName} className="w-16 h-16 mb-4 filter grayscale hover:grayscale-0 transition-all duration-300" />
-                <h3 className="text-xl font-semibold text-white">{skillName}</h3>
+                <h3 className="text-xl font-semibold text-white tracking-wide">{skillName}</h3>
               </div>
             ) : null;
           })}

@@ -37,11 +37,11 @@ const Projects = ({ projectsData }) => {
         ${type === 'github' ? 'bg-gray-900 border border-gray-700' : 'bg-gray-700 border border-blue-500'}`}
       >
         <div>
-          <h3 className={`text-2xl font-bold mb-3 ${type === 'github' ? 'text-white' : 'text-blue-300'}`}>{project.name}</h3>
+          <h3 className={`text-2xl font-bold mb-3 ${type === 'github' ? 'text-white' : 'text-blue-300'} leading-snug`}>{project.name}</h3>
           <p className="text-gray-300 mb-5 text-base leading-relaxed">{project.description || 'No description available.'}</p>
           <div className="flex flex-wrap gap-2 mb-6">
             {(project.techStack || (project.language ? [project.language] : [])).map((tech, i) => (
-              <span key={i} className={`text-xs font-semibold px-3 py-1 rounded-full ${type === 'github' ? 'bg-gray-700 text-gray-300' : 'bg-blue-600 text-white'}`}>
+              <span key={i} className={`text-xs font-semibold px-3 py-1 rounded-full ${type === 'github' ? 'bg-gray-700 text-gray-300' : 'bg-blue-600 text-white'} tracking-wide`}>
                 {tech}
               </span>
             ))}
@@ -53,7 +53,7 @@ const Projects = ({ projectsData }) => {
               href={project.repoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-5 py-2 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md"
+              className="bg-blue-600 text-white px-5 py-2 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md tracking-wide"
             >
               View Code
             </a>
@@ -63,7 +63,7 @@ const Projects = ({ projectsData }) => {
               href={project.demoLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 text-white px-5 py-2 rounded-full text-lg font-semibold hover:bg-green-700 transition-colors duration-300 shadow-md"
+              className="bg-green-600 text-white px-5 py-2 rounded-full text-lg font-semibold hover:bg-green-700 transition-colors duration-300 shadow-md tracking-wide"
             >
               Live Demo
             </a>
@@ -76,7 +76,7 @@ const Projects = ({ projectsData }) => {
   return (
     <section id="projects" className="min-h-screen bg-gray-800 text-white py-16">
       <div className="container mx-auto px-6 text-center max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-blue-400 mb-12">My Projects</h2>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-blue-400 mb-12 tracking-tight">My Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {githubProjects.map((project) => (
             <ProjectCard
